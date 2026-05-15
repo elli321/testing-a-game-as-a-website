@@ -157,6 +157,8 @@ window.addEventListener('keyup', (e) => {
 
 // Update player movement
 function updatePlayer() {
+    if (!gameState.gameRunning) return;
+    
     player.vx = 0;
     player.vy = 0;
 
@@ -337,7 +339,7 @@ function drawGrid() {
     }
 }
 
-// Main game loop
+// Main game loop - ALWAYS runs, but only updates when gameRunning is true
 function gameLoop() {
     updatePlayer();
 
@@ -347,9 +349,7 @@ function gameLoop() {
     drawObjects();
     drawPlayer();
 
-    if (gameState.gameRunning) {
-        requestAnimationFrame(gameLoop);
-    }
+    requestAnimationFrame(gameLoop);
 }
 
 // Start game
