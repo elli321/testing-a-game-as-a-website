@@ -20,11 +20,13 @@ function openGallery() {
     }
 
     document.getElementById('galleryModal').classList.remove('hidden');
+    document.getElementById('pictureModal').classList.add('hidden');
     gameState.gameRunning = false;
 }
 
 function closeGallery() {
     document.getElementById('galleryModal').classList.add('hidden');
+    document.getElementById('pictureModal').classList.add('hidden');
     gameState.gameRunning = true;
 }
 
@@ -54,12 +56,14 @@ function openPictureView(pictureId) {
 
     document.getElementById('commentInput').value = '';
     document.getElementById('commentInput').dataset.pictureId = pictureId;
+    document.getElementById('galleryModal').classList.add('hidden');
     document.getElementById('pictureModal').classList.remove('hidden');
 }
 
 function closePicture() {
     document.getElementById('pictureModal').classList.add('hidden');
-    openGallery();
+    document.getElementById('galleryModal').classList.add('hidden');
+    gameState.gameRunning = true;
 }
 
 function addComment() {
