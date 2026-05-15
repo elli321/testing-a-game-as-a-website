@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Rose Explorer 🌹</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="hud">
+            <div id="stats">
+                <p>🌹 Roses: <span id="roseCount">0</span></p>
+                <p>📍 <span id="locationName">Starting Garden</span></p>
+            </div>
+            <div id="controls">
+                <p>⬅️➡️⬆️⬇️ or WASD: Move | SPACE/E: Interact | G: Gallery</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="galleryModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🖼️ Your Gallery</h2>
+                <button class="close-btn" onclick="closeGallery()">&times;</button>
+            </div>
+            <div id="galleryContainer" class="gallery-grid">
+                <!-- Gallery items inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="pictureModal" class="modal hidden">
+        <div class="modal-content picture-modal">
+            <div class="modal-header">
+                <h2 id="pictureTitle">Weird Picture</h2>
+                <button class="close-btn" onclick="closePicture()">&times;</button>
+            </div>
+            <img id="pictureImage" src="" alt="Picture" style="width: 100%; max-width: 400px; border: 2px solid #e67e22; border-radius: 5px; margin-bottom: 20px;">
+            <div id="commentsSection">
+                <h3>Comments</h3>
+                <div id="comments"></div>
+                <div class="comment-input">
+                    <textarea id="commentInput" placeholder="What's your thought on this weird picture?" maxlength="200"></textarea>
+                    <button onclick="addComment()">Post Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>
